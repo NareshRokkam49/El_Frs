@@ -1,0 +1,93 @@
+import 'package:shared_preferences/shared_preferences.dart';
+
+class Preferences {
+  static SharedPreferences? prefs;
+  static const String token = 'token';
+  static const String userName = 'userName';
+  static const String email = 'email';
+  static const String phone = 'phone';
+  static const String profile = "profile";
+  static const String profilePath = 'profilePath';
+    static const String empId = "empId";
+        static const String name = "name";
+
+
+  
+   static Future initSharedPreference() async {
+    prefs = await SharedPreferences.getInstance();
+  }
+
+  static clearPreference() async {
+    final instance = await SharedPreferences.getInstance();
+    instance.clear();
+  }
+
+  static void setToken(String newLab) {
+    prefs!.setString(token, newLab);
+  }
+
+  static String? getToken() {
+    return prefs!.getString(token);
+  }
+
+  static bool? removeToken() {
+    prefs!.remove(token);
+    return null;
+  }
+
+
+
+  static void setPhone(String phoneNew) {
+    prefs!.setString(phone, phoneNew);
+  }
+
+  static String? getPhone() {
+    return prefs!.getString(phone);
+  }
+
+
+
+  static void setProfile(String newProfile) {
+    prefs!.setString(profile, newProfile);
+  }
+
+  static String? getProfile() {
+    return prefs!.getString(profile);
+  }
+
+  static bool? removeProfile() {
+    prefs!.remove(profile);
+    return null;
+  }
+   static void setProfilePath(String pp) {
+    prefs!.setString(profilePath, pp);
+  }
+
+  static String? getProfilePath() {
+    return prefs!.getString(profilePath);
+  }
+
+  static void setUserName(String un) {
+    prefs!.setString(userName, un);
+  }
+
+  static String? getUserName() {
+    return prefs!.getString(userName);
+  }
+static void setEmpId(String ei) {
+    prefs!.setString(empId, ei);
+  }
+
+  static String? getEmpId() {
+    return prefs!.getString(empId);
+  }
+
+static void setName(String nm) {
+    prefs!.setString(name, nm);
+  }
+
+  static String? getName() {
+    return prefs!.getString(name);
+  }
+}
+
